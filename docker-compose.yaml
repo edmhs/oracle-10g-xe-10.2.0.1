@@ -2,9 +2,12 @@ version: '2'
 services:
   database:
     image: oracle-xe-10g
-    # volumes:
-    #   - ./oradata:/usr/lib/oracle/xe/oradata # persistent oracle database data.
+    volumes:
+      # - oradata:/usr/lib/oracle/xe/oradata/XE # persistent oracle database data.
+      - oradata:/usr/lib/oracle # persistent oracle database data.
     ports:
       - 1521:1521
       - 8080:8080
       # - 5500:5500
+volumes:
+  oradata:
